@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <form #employeeForm="ngForm" >
+          <input type="hidden" name="_id" [(ngModel)]="addEmploye._id">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Nombre" name="name" [(ngModel)]="addEmploye.name">
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Position" name="position" [(ngModel)]="addEmploye.position">
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="office" name="office" [(ngModel)]="addEmploye.office">
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="salary" name="salary" [(ngModel)]="addEmploye.salary">
+          </div>
+<br>
+          <button class="btn btn-primary mr-2" role="button" (click)='resetForm()'>  Clean</button>
+          <button class="btn btn-secundary" role="button" (click)='create()'> Save</button>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <table class="table table-striped">
+      <thead>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>salary</th>
+        <th>Operations</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of employee">
+          <td>{{data.name}}</td>
+          <td>{{data.position}}</td>
+          <td>{{data.office}}</td>
+          <td>{{data.salary}}</td>
+          <td>
+            
+            <button class="btn btn-primary" role="button" (click)="edit(data)">Edit</button>
+            <button class="btn btn-danger" role="button" (click)="delete(data._id)">Delete</button>
+          </td>
+
+        </tr>
+      </tbody> 
+    </table>
+  </div>
+</div>
